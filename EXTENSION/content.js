@@ -6,7 +6,7 @@ let downloadedImages = new Set(); // To keep track of already downloaded images
 
 // Function to play sound
 function playSound() {
-    const audio = new Audio(chrome.runtime.getURL("assets/meggs.mp3")); // Ensure success.mp3 is in your extension's assets folder
+    const audio = new Audio(chrome.runtime.getURL("assets/success.mp3")); // Ensure success.mp3 is in your extension's assets folder
     audio.play();
 }
 
@@ -92,32 +92,8 @@ function detectCaptcha() {
     }
 }
 
-// chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-//     if (message.type === 'OCR_RESULT') {
-//         // playSound();
-//         const inputField = document.querySelector('input[name="captcha"]') || 
-//             document.querySelector('input[name="ctl00$OnlineContent$txtCaptcha"]') ||  
-//             document.querySelector('input[name="ctl00$ContentPlaceHolder1$txtCaptcha"]') ||
-//             document.querySelector('input[name="captcha_response"]') || 
-//             document.querySelector('input[name*="verifycode"], input[id*="captcha"]') ||
-//             document.querySelector('input[formcontrolname="captchForm"]') ||
-//             document.querySelector('input[id="txtInput"]') ||
-//             document.querySelector('input[id="my-captcha-image"]'); // Replace with the correct ID or class
-        
-//         if (inputField) {
-//             inputField.value = message.text;  // Set the OCR result in the input field
-            
-//             // Play sound after solving CAPTCHA
-//             playSound();
-//         }
-//     }
-// });
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === 'OCR_RESULT') {
-        // Play sound function (if needed)
-       
-
         // Select the appropriate input field
         const inputField = document.querySelector('input[name="captcha"]') || 
             document.querySelector('input[name="ctl00$OnlineContent$txtCaptcha"]') ||  
