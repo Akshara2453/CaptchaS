@@ -8,7 +8,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 # Path to the Dataset
-dataset_path = Path("/Users/vineeshreddy/Downloads/DATASETS/IRCTC")
+dataset_path = Path("PATH_TO_DATASET")
 img_paths = sorted(list(map(str, dataset_path.glob("*.png"))))
 img_labels = [img.split(os.path.sep)[-1].split(".png")[0] for img in img_paths]
 unique_chars = sorted(set(char for label in img_labels for char in label))
