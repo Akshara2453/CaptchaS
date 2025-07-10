@@ -38,12 +38,19 @@ Image Format	.png (grayscale, 200x80 resolution)
 🧪 Model Architecture
 
 Input Image (200x80x1)
+
 │
+
 ├── Conv2D → MaxPool
+
 ├── Conv2D → MaxPool
+
 ├── Reshape
+
 ├── Dense → Dropout
+
 ├── BiLSTM → BiLSTM
+
 └── Dense (Softmax) → CTC Loss
 
 Two models are trained and compared in real-time:
